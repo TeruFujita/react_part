@@ -1,0 +1,384 @@
+/* ========================================
+   ページ全体（page.tsx）
+   ======================================== */
+.page {
+  display: flex;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+.sidebar {
+  width: 432px;
+  flex-shrink: 0;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .page {
+    flex-direction: column;
+  }
+}
+
+/* ========================================
+   ① サイドバー・プロフィール（SidebarProfile）
+   ======================================== */
+.profile {
+  padding: 55px 28px 0;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.avatar {
+  position: relative;
+  width: 112px;
+  height: 112px;
+  flex-shrink: 0;
+  border-radius: 58.667px;
+  overflow: hidden;
+}
+
+.avatarImage {
+  object-fit: cover;
+}
+
+.teamName {
+  margin-top: 35px;
+  font-size: 25.394px;
+  font-weight: 700;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.menuButton {
+  margin-top: 40px;
+  margin-left: auto;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #bababa;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bio {
+  margin-top: 22px;
+  margin-left: 6px;
+  font-size: 19.22px;
+  line-height: normal;
+}
+
+.bio p + p {
+  margin-top: 0;
+}
+
+.stats {
+  display: flex;
+  gap: 101px;
+  margin-top: 28px;
+  margin-left: 6px;
+}
+
+.stat {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.statNumber {
+  font-size: 19.22px;
+  font-weight: 800;
+  line-height: normal;
+}
+
+.statLabel {
+  font-size: 15.174px;
+  line-height: normal;
+}
+
+.stat:last-child .statLabel {
+  font-size: 14.88px;
+}
+
+.profileFollowButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  height: 35px;
+  margin-top: 27px;
+  background: #000000;
+  color: #ffffff;
+  border-radius: 10px;
+  font-size: 17.36px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.followIcon {
+  flex-shrink: 0;
+}
+
+/* ========================================
+   ② サイドバー・イベント一覧（SidebarEvents）
+   ======================================== */
+.events {
+  margin-top: 40px;
+}
+
+.events > * + * {
+  margin-top: 2px;
+}
+
+/* ========================================
+   ③ 上部ナビ（TopNav）
+   ======================================== */
+.topNav {
+  background: #ffffff;
+  padding: 34px 44px 0;
+  min-height: 224px;
+}
+
+.mainNavList {
+  display: flex;
+  gap: 64px;
+  list-style: none;
+}
+
+.mainNavList li {
+  position: relative;
+}
+
+.mainNavLink {
+  display: inline-block;
+  position: relative;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.mainNavLink:visited {
+  color: #000000;
+}
+
+.mainNavLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1px;
+  background-color: #000000;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.mainNavLink:hover::after {
+  opacity: 1;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-top: 52px;
+}
+
+.filterActive,
+.filterInactive {
+  width: 72px;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.filterActive {
+  background: #000000;
+  color: #ffffff;
+}
+
+.filterInactive {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #b6b6b6;
+}
+
+/* ========================================
+   ④ プロフィールカード一覧（ProfileCardGrid）
+   ======================================== */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 336px);
+  gap: 0;
+  padding: 2px 0 40px;
+  justify-content: start;
+}
+
+@media (max-width: 1200px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, 336px);
+  }
+}
+
+@media (max-width: 900px) {
+  .cardGrid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding: 0 16px 40px;
+  }
+}
+
+/* ========================================
+   イベントカード1枚（EventCard）
+   ======================================== */
+.eventCard {
+  position: relative;
+  width: 100%;
+  height: 165px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.eventThumbnail {
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  width: 147px;
+  height: 81px;
+  overflow: hidden;
+}
+
+.eventThumbnailImage {
+  object-fit: cover;
+}
+
+.eventTitle {
+  position: absolute;
+  left: 176.71px;
+  top: 19.15px;
+  font-size: 17.05px;
+  font-weight: 700;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.eventMeta {
+  position: absolute;
+  left: 176.71px;
+  top: 61.38px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.eventCount {
+  font-size: 17.05px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.eventDescription {
+  position: absolute;
+  left: 11.71px;
+  top: 103.62px;
+  color: #404040;
+  font-size: 12.422px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.eventFollowButton {
+  position: absolute;
+  left: 11.71px;
+  top: 131.12px;
+  width: calc(100% - 23.42px);
+  height: 23.571px;
+  border: 0.786px solid #000000;
+  border-radius: 6.875px;
+  background: #ffffff;
+  font-size: 12.422px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+/* ========================================
+   プロフィールカード1枚（ProfileCard）
+   ======================================== */
+.profileCard {
+  position: relative;
+  width: 336px;
+  height: 400px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.profileCardImageWrap {
+  position: relative;
+  width: 100%;
+  height: 192px;
+  margin-top: -1px;
+}
+
+.profileCardHeaderImage {
+  object-fit: cover;
+}
+
+.profileCardName {
+  position: absolute;
+  left: 14px;
+  top: 203px;
+  font-size: 32.897px;
+  font-weight: 800;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.profileCardDetails {
+  position: absolute;
+  left: 14px;
+  top: 256px;
+  list-style: none;
+  color: #434343;
+  font-size: 17.357px;
+  line-height: normal;
+}
+
+.profileCardDetails li + li {
+  margin-top: 12px;
+}
+
+.profileCardLikes {
+  position: absolute;
+  right: 14px;
+  bottom: 54px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profileCardHeartIcon {
+  flex-shrink: 0;
+}
+
+.profileCardLikeCount {
+  color: #7e7d7d;
+  font-size: 17.357px;
+  line-height: normal;
+}
